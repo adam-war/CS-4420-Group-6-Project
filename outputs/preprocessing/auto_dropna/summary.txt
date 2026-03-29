@@ -1,0 +1,28 @@
+Mode: auto
+Strategy: dropna
+Target: DX
+Rows: 2059
+Total columns: 10
+Number of features: 9
+Numeric features: 8
+Categorical features: 1
+Missing values before: 549
+Missing values after: 0
+Rows before: 2409
+Rows after: 2059
+
+Selected features:
+- AGE
+- PTGENDER
+- PTEDUCAT
+- APOE4
+- MMSE
+- ADAS13
+- FAQ
+- Ventricles
+- WholeBrain
+
+Class distribution:
+- MCI: 952
+- CN: 749
+- Dementia: 358

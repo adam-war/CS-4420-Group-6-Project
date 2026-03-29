@@ -1,0 +1,4 @@
+{
+    "model__eta": 0.01,
+    "model__n_iter": 50
+}

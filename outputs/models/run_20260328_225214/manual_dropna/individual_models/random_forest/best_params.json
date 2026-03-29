@@ -1,0 +1,6 @@
+{
+    "model__criterion": "entropy",
+    "model__max_depth": 20,
+    "model__min_samples_split": 10,
+    "model__n_estimators": 200
+}

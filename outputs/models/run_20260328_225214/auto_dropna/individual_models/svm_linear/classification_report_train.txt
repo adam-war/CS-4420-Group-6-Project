@@ -1,0 +1,9 @@
+              precision    recall  f1-score   support
+
+          CN       0.77      0.87      0.82       599
+    Dementia       0.90      0.80      0.84       286
+         MCI       0.81      0.76      0.78       762
+
+    accuracy                           0.81      1647
+   macro avg       0.83      0.81      0.81      1647
+weighted avg       0.81      0.81      0.81      1647

@@ -1,0 +1,31 @@
+{
+    "mode": "manual",
+    "strategy": "dropna",
+    "target": "DX",
+    "rows": 1839,
+    "total_columns": 11,
+    "number_of_features": 10,
+    "numeric_features": 9,
+    "categorical_features": 1,
+    "selected_features": [
+        "AGE",
+        "PTGENDER",
+        "PTEDUCAT",
+        "APOE4",
+        "MMSE",
+        "ADAS13",
+        "FAQ",
+        "Hippocampus",
+        "Ventricles",
+        "WholeBrain"
+    ],
+    "missing_values_before": 892,
+    "missing_values_after": 0,
+    "rows_before": 2409,
+    "rows_after": 1839,
+    "class_distribution": {
+        "MCI": 836,
+        "CN": 703,
+        "Dementia": 300
+    }
+}

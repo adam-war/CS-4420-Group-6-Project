@@ -1,0 +1,55 @@
+{
+    "dataset_name": "manual_dropna",
+    "target_column": "DX",
+    "subsample_size": null,
+    "test_size": 0.2,
+    "random_state": 1,
+    "stratify": true,
+    "do_grid_search": true,
+    "cv_folds": 5,
+    "scoring": "accuracy",
+    "models_to_run": [
+        "adaline",
+        "logistic_regression",
+        "svm_linear",
+        "svm_rbf",
+        "knn",
+        "decision_tree",
+        "random_forest",
+        "bagging",
+        "sgd_classifier"
+    ],
+    "feature_names": [
+        "AGE",
+        "PTGENDER",
+        "PTEDUCAT",
+        "APOE4",
+        "MMSE",
+        "ADAS13",
+        "FAQ",
+        "Hippocampus",
+        "Ventricles",
+        "WholeBrain"
+    ],
+    "n_features": 10,
+    "X_full_shape": [
+        1839,
+        10
+    ],
+    "X_train_shape": [
+        1471,
+        10
+    ],
+    "X_test_shape": [
+        368,
+        10
+    ],
+    "y_full_size": 1839,
+    "y_train_size": 1471,
+    "y_test_size": 368,
+    "class_distribution": {
+        "MCI": 836,
+        "CN": 703,
+        "Dementia": 300
+    }
+}

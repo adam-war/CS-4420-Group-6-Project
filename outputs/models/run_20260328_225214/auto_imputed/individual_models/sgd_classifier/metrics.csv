@@ -1,0 +1,2 @@
+dataset_name,model,train_accuracy,test_accuracy,train_precision_macro,test_precision_macro,train_recall_macro,test_recall_macro,train_f1_macro,test_f1_macro,best_cv_score,train_time,test_time
+auto_imputed,sgd_classifier,0.7841203943954334,0.7531120331950207,0.8051329637835458,0.7669885669885671,0.7957621862541995,0.7603084761595902,0.7966116136147212,0.7607480048729623,0.7680263777673104,0.21091198921203613,0.005655765533447266
