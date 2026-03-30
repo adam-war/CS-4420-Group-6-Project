@@ -47,6 +47,7 @@ from src.models.decision_tree import build_model as build_decision_tree
 from src.models.random_forest import build_model as build_random_forest
 from src.models.bagging import build_model as build_bagging
 from src.models.sgd_classifier import build_model as build_sgd_classifier
+from src.models.gradient_boosting import build_model as build_gradient_boosting
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -76,6 +77,8 @@ def build_estimator(model_name, params):
         return build_bagging(params)
     if model_name == "sgd_classifier":
         return build_sgd_classifier(params)
+    if model_name == "gradient_boosting":
+        return build_gradient_boosting(params)
 
     raise ValueError(f"Unknown model: {model_name}")
 

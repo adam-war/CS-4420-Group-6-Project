@@ -51,6 +51,7 @@ MODELS_TO_RUN = [
     "random_forest",
     "bagging",
     "sgd_classifier",
+    "gradient_boosting",
 ]
 #options:
 #    "adaline"
@@ -62,6 +63,7 @@ MODELS_TO_RUN = [
 #    "random_forest"
 #    "bagging"
 #    "sgd_classifier"
+#    "gradient_boosting"
 
 
 # --------------------------------------------
@@ -110,7 +112,6 @@ BASELINE_PARAMS = {
         "C": 1.0,
         "max_iter": 1000,
         "solver": "lbfgs",
-        "multi_class": "auto",
         "random_state": RANDOM_STATE,
     },
 
@@ -163,6 +164,13 @@ BASELINE_PARAMS = {
     "max_iter": 1000,
     "tol": 1e-3,
     "random_state": RANDOM_STATE,
+    },
+    "gradient_boosting": {
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "min_samples_split": 2,
+        "random_state": RANDOM_STATE,
     },
 }
 
@@ -219,5 +227,10 @@ GRID_PARAMS = {
         "loss": ["hinge", "log"],
         "alpha": [0.00001, 0.0001, 0.001, 0.01],
         "max_iter": [1000],
+    },
+    "gradient_boosting": {
+        "n_estimators": [150, 200, 250],
+        "learning_rate": [0.05, 0.01, 0.005],
+        "max_depth": [2, 3, 4],
     },
 }
