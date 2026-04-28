@@ -1,0 +1,5 @@
+{
+    "model__alpha": 0.001,
+    "model__loss": "log",
+    "model__max_iter": 1000
+}

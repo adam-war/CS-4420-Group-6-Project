@@ -1,0 +1,29 @@
+Mode: manual
+Strategy: imputed
+Target: DX
+Rows: 2409
+Total columns: 11
+Number of features: 10
+Numeric features: 9
+Categorical features: 1
+Missing values before: 892
+Missing values after: 0
+Rows before: 2409
+Rows after: 2409
+
+Selected features:
+- AGE
+- PTGENDER
+- PTEDUCAT
+- APOE4
+- MMSE
+- ADAS13
+- FAQ
+- Hippocampus
+- Ventricles
+- WholeBrain
+
+Class distribution:
+- MCI: 1101
+- CN: 895
+- Dementia: 413

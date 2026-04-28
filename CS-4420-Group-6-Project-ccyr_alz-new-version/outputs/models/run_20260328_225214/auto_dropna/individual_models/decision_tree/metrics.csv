@@ -1,0 +1,2 @@
+dataset_name,model,train_accuracy,test_accuracy,train_precision_macro,test_precision_macro,train_recall_macro,test_recall_macro,train_f1_macro,test_f1_macro,best_cv_score,train_time,test_time
+auto_dropna,decision_tree,0.8312082574377656,0.7645631067961165,0.8489343404487443,0.7905985941152296,0.8341585793901333,0.7558771929824561,0.8402491247081869,0.7698289084250315,0.791144883485309,0.5676310062408447,0.005965232849121094
