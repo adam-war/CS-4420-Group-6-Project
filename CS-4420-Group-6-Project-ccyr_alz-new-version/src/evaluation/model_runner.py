@@ -15,7 +15,6 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from pandas.api.types import is_numeric_dtype
 
 from config.config import (
-    TARGET_COLUMN,
     DATASETS_TO_RUN,
     SUBSAMPLE_SIZE,
     TEST_SIZE,
@@ -143,10 +142,10 @@ def create_dataset_directories(run_dir, dataset_name):
     return dataset_dir, models_dir
 
 
-def save_dataset_metadata(dataset_dir, dataset_name, feature_names, X, y, X_train, X_test, y_train, y_test):
+def save_dataset_metadata(dataset_dir, dataset_name, target_column, feature_names, X, y, X_train, X_test, y_train, y_test):
     metadata = {
         "dataset_name": dataset_name,
-        "target_column": TARGET_COLUMN,
+        "target_column": target_column,
         "subsample_size": SUBSAMPLE_SIZE,
         "test_size": TEST_SIZE,
         "random_state": RANDOM_STATE,
@@ -308,7 +307,7 @@ def train_single_model(model_name, dataset_name, X_train, X_test, y_train, y_tes
 # ============================================
 
 def run_single_dataset(dataset_name, run_dir):
-    X, y, feature_names = get_features_and_target(dataset_name)
+    X, y, feature_names, target_column = get_features_and_target(dataset_name)
     X, y = apply_optional_subsample(X, y)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -327,6 +326,7 @@ def run_single_dataset(dataset_name, run_dir):
         save_dataset_metadata(
             dataset_dir,
             dataset_name,
+            target_column,
             feature_names,
             X,
             y,

@@ -121,7 +121,7 @@ class Dataset:
   def build_auto_dropna(self):
       df_auto, selected_features = self.get_auto_dataset()
       df_after = df_auto.dropna().copy()
-      df_after.to_csv(self.auto_imputed_dir / "dataset.csv", index=False)
+      df_after.to_csv(self.auto_dropna_dir / "dataset.csv", index=False)
 
       self.save_outputs(
           df_before=df_auto,
@@ -337,51 +337,52 @@ class Dataset:
 # --------------------------------------------
 
 def main():
-  target_column = "DX"
+    target_column = "Alzheimer’s Diagnosis"
 
-  input_filename = "clean_dataset_DX.csv"
-  manual_features = [
-      "AGE",
-      "PTGENDER",
-      "PTEDUCAT",
-      "APOE4",
-      "MMSE",
-      "ADAS13",
-      "FAQ",
-      "Hippocampus",
-      "Ventricles",
-      "WholeBrain",
-  ]
+    input_filename = "alzheimers_prediction_dataset.csv"
 
-  unnecessary_columns = [
-      "RID",
-      "PTID",
-      "VISCODE",
-      "EXAMDATE",
-      "EXAMDATE_bl",
-      "COLPROT",
-      "ORIGPROT",
-      "SITE",
-      "IMAGEUID",
-      "IMAGEUID_bl",
-      "FSVERSION",
-      "FSVERSION_bl",
-      "FLDSTRENG",
-      "FLDSTRENG_bl",
-      "update_stamp",
-      "Years_bl",
-      "Month_bl",
-      "Month",
-      "M",
-      "DX_bl",
-  ]
-  dataset_folder_name = "test"
+    manual_features = [
+        "Country",
+        "Age",
+        "Gender",
+        "Education Level",
+        "BMI",
+        "Physical Activity Level",
+        "Smoking Status",
+        "Alcohol Consumption",
+        "Diabetes",
+        "Hypertension",
+        "Cholesterol Level",
+        "Family History of Alzheimer’s",
+        "Cognitive Test Score",
+        "Depression Level",
+        "Sleep Quality",
+        "Dietary Habits",
+        "Air Pollution Exposure",
+        "Employment Status",
+        "Marital Status",
+        "Genetic Risk Factor (APOE-ε4 allele)",
+        "Social Engagement Level",
+        "Income Level",
+        "Stress Levels",
+        "Urban vs Rural Living",
+    ]
 
-  alz1 = Dataset(target_column=target_column, 
-                   input_filename=input_filename, 
-                   manual_features=manual_features, 
-                   unnecessary_columns=unnecessary_columns, dataset_folder_name=dataset_folder_name)
-  alz1.run_pipeline()
+    unnecessary_columns = []
+
+    dataset_folder_name = ""  
+
+    alz1 = Dataset(
+        dataset_folder_name=dataset_folder_name,
+        target_column=target_column,
+        input_filename=input_filename,
+        manual_features=manual_features,
+        unnecessary_columns=unnecessary_columns,
+    )
+
+    alz1.input_dir = PROJECT_ROOT / "datasets"
+
+    alz1.run_pipeline()
 
 
 if __name__ == "__main__":

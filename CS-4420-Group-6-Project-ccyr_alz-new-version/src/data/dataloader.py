@@ -5,92 +5,77 @@
 from pathlib import Path
 import pandas as pd
 
-from config.config import DATASETS_TO_RUN, DATASET_PATHS, TARGET_COLUMN
+from config.config import DATASETS_TO_RUN, DATASET_CONFIGS
 
-
-# --------------------------------------------
-# 1. PROJECT ROOT
-# --------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
-# --------------------------------------------
-# 2. LOAD DATASET PATH
-# --------------------------------------------
-
-def get_dataset_path(dataset_name):
-    """
-    Return the absolute path of the selected processed dataset.
-    """
-    if dataset_name not in DATASET_PATHS:
+def get_dataset_config(dataset_name):
+    """Return the DatasetConfig object for a dataset name."""
+    if dataset_name not in DATASET_CONFIGS:
         raise ValueError(
             f"Unknown dataset name: {dataset_name}. "
-            f"Available options are: {list(DATASET_PATHS.keys())}"
+            f"Available options are: {list(DATASET_CONFIGS.keys())}"
         )
-
-    relative_path = DATASET_PATHS[dataset_name]
-    dataset_path = PROJECT_ROOT / relative_path
-
-    return dataset_path
+    return DATASET_CONFIGS[dataset_name]
 
 
-# --------------------------------------------
-# 3. LOAD DATAFRAME
-# --------------------------------------------
+def get_dataset_path(dataset_name):
+    """Return the absolute path of the selected processed dataset."""
+    return PROJECT_ROOT / get_dataset_config(dataset_name).path
+
+
+def get_target_column(dataset_name):
+    """Return the target column for the selected processed dataset."""
+    return get_dataset_config(dataset_name).target_column
+
 
 def load_dataset(dataset_name):
-    """
-    Load the selected dataset as a pandas DataFrame.
-    """
+    """Load the selected dataset as a pandas DataFrame."""
     dataset_path = get_dataset_path(dataset_name)
 
     if not dataset_path.exists():
         raise FileNotFoundError(
             f"Dataset file not found: {dataset_path}\n"
-            "Make sure preprocessing.py has already created this dataset."
+            "Make sure preprocessing has already created this dataset, "
+            "or check the path in DATASET_CONFIGS."
         )
 
-    df = pd.read_csv(dataset_path)
-    return df
+    return pd.read_csv(dataset_path)
 
 
-# --------------------------------------------
-# 4. SPLIT FEATURES AND TARGET
-# --------------------------------------------
-
-def get_features_and_target(dataset_name, target_column=TARGET_COLUMN):
+def get_features_and_target(dataset_name):
     """
-    Load dataset and split it into:
-    - X: feature DataFrame
-    - y: target Series
-    - feature_names: list of feature names
+    Load dataset and split it into X, y, feature_names, and target_column.
     """
     df = load_dataset(dataset_name)
+    target_column = get_target_column(dataset_name)
 
     if target_column not in df.columns:
         raise ValueError(
-            f"Target column '{target_column}' not found in dataset. "
+            f"Target column '{target_column}' not found in dataset '{dataset_name}'. "
             f"Available columns: {list(df.columns)}"
         )
 
     feature_names = [col for col in df.columns if col != target_column]
-
     X = df[feature_names].copy()
     y = df[target_column].copy()
 
-    return X, y, feature_names
+    return X, y, feature_names, target_column
 
 
-# --------------------------------------------
-# 5. PRINT DATASET INFO
-# --------------------------------------------
-
-def print_dataset_info(dataset_name, target_column=TARGET_COLUMN):
-    """
-    Print a dataset summary for validation.
-    """
+def print_dataset_info(dataset_name):
+    """Print a dataset summary for validation."""
     df = load_dataset(dataset_name)
+    target_column = get_target_column(dataset_name)
+
+    if target_column not in df.columns:
+        raise ValueError(
+            f"Target column '{target_column}' not found in dataset '{dataset_name}'. "
+            f"Available columns: {list(df.columns)}"
+        )
+
     feature_names = [col for col in df.columns if col != target_column]
 
     print("\n==============================")
@@ -109,10 +94,6 @@ def print_dataset_info(dataset_name, target_column=TARGET_COLUMN):
     print("\nTarget distribution:")
     print(df[target_column].value_counts())
 
-
-# --------------------------------------------
-# 6. MAIN (OPTIONAL TEST)
-# --------------------------------------------
 
 if __name__ == "__main__":
     print("\n==============================")

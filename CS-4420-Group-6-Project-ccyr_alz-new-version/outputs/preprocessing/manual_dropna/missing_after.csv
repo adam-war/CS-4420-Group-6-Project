@@ -1,12 +1,26 @@
 feature,missing_count,missing_percent
-ADAS13,0,0.0
-AGE,0,0.0
-APOE4,0,0.0
-DX,0,0.0
-FAQ,0,0.0
-Hippocampus,0,0.0
-MMSE,0,0.0
-PTEDUCAT,0,0.0
-PTGENDER,0,0.0
-Ventricles,0,0.0
-WholeBrain,0,0.0
+Age,0,0.0
+Air Pollution Exposure,0,0.0
+Alcohol Consumption,0,0.0
+Alzheimer’s Diagnosis,0,0.0
+BMI,0,0.0
+Cholesterol Level,0,0.0
+Cognitive Test Score,0,0.0
+Country,0,0.0
+Depression Level,0,0.0
+Diabetes,0,0.0
+Dietary Habits,0,0.0
+Education Level,0,0.0
+Employment Status,0,0.0
+Family History of Alzheimer’s,0,0.0
+Gender,0,0.0
+Genetic Risk Factor (APOE-ε4 allele),0,0.0
+Hypertension,0,0.0
+Income Level,0,0.0
+Marital Status,0,0.0
+Physical Activity Level,0,0.0
+Sleep Quality,0,0.0
+Smoking Status,0,0.0
+Social Engagement Level,0,0.0
+Stress Levels,0,0.0
+Urban vs Rural Living,0,0.0

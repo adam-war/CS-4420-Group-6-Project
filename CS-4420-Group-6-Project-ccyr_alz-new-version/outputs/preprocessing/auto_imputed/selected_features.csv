@@ -1,10 +1,25 @@
 feature
-AGE
-PTGENDER
-PTEDUCAT
-APOE4
-MMSE
-ADAS13
-FAQ
-Ventricles
-WholeBrain
+Country
+Age
+Gender
+Education Level
+BMI
+Physical Activity Level
+Smoking Status
+Alcohol Consumption
+Diabetes
+Hypertension
+Cholesterol Level
+Family History of Alzheimer’s
+Cognitive Test Score
+Depression Level
+Sleep Quality
+Dietary Habits
+Air Pollution Exposure
+Employment Status
+Marital Status
+Genetic Risk Factor (APOE-ε4 allele)
+Social Engagement Level
+Income Level
+Stress Levels
+Urban vs Rural Living

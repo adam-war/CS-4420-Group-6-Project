@@ -13,6 +13,5 @@ def build_model(params):
         C=params["C"],
         max_iter=params["max_iter"],
         solver=params["solver"],
-        multi_class=params["multi_class"],
         random_state=params["random_state"],
     )
